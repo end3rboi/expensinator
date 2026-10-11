@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c110f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Expensinator">
+<meta name="format-detection" content="telephone=no">
+<title>Expensinator</title>
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+/* Layout: one ledger column (max 760px) of Sourceter-style cards. Tabs: Summary first, then one per sheet.
+   Entry tools on top, balance at the end, running total + export pinned to the bottom. Dark only, by choice;
+   the summary preview is drawn as light paper because that is what gets printed. */
+:root{
+  --bg:#0c110f; --surface:#131916; --surface2:#1a221e; --field:#0f1512;
+  --line:#212b26; --line2:#2a3630; --line3:#3a4a42;
+  --text:#e5ebe7; --dim:#8b9891; --dim2:#6b7871;
+  --accent:#38a873; --accent2:#45b981; --accent-ink:#04130b; --accent-soft:#163626;
+  --gold:#d8b25e; --gold-soft:#2b2414;
+  --owe:#f0907b; --owe-soft:#361d18;
+  --paper:#f7f5ef; --ink:#161616; --rule:#2b2b2b; --paper-head:#e8e4d8; --paper-dim:#8a8578;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent}
+html,body{transition:background-color .25s ease}
+html,body{margin:0; padding:0; background:var(--bg); color:var(--text); font:14px/1.45 var(--font); overscroll-behavior:none}
+body{padding:env(safe-area-inset-top) env(safe-area-inset-right) 0 env(safe-area-inset-left)}
+.wrap{max-width:760px; margin:0 auto; padding:14px 16px calc(96px + env(safe-area-inset-bottom)); display:flex; flex-direction:column; gap:12px}
+.num,.v,.ea,.ct,.amt,#barTotal{font-variant-numeric:tabular-nums}
+[hidden]{display:none !important}
+
+button{font:inherit; color:var(--text); background:var(--surface2); border:1px solid var(--line2); border-radius:9px; padding:9px 14px; cursor:pointer; font-weight:500}
+button:hover:not(:disabled){background:#222c27; border-color:var(--line3)}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,label.btn:focus-within{outline:2px solid var(--accent2); outline-offset:1px}
+button.primary{background:var(--accent); border-color:var(--accent); color:var(--accent-ink); font-weight:700; padding:12px 22px}
+button.primary:hover:not(:disabled){background:var(--accent2); border-color:var(--accent2)}
+button.quiet{background:none; border:none; color:var(--dim); padding:8px 10px}
+button.quiet:hover{color:var(--text); background:var(--surface2)}
+button.del{color:var(--owe)}
+button.del.armed{background:var(--owe-soft); border-color:var(--owe)}
+button.help{width:34px; height:34px; padding:0; border-radius:17px; font-weight:700; color:var(--dim)}
+button.icon{width:36px; height:36px; padding:0; font-weight:700; color:var(--dim)}
+label.btn{display:inline-flex; align-items:center; font-weight:500; background:var(--surface2); border:1px solid var(--line2); border-radius:9px; padding:9px 14px; cursor:pointer}
+.vh{position:absolute; width:1px; height:1px; opacity:0; overflow:hidden; clip:rect(0 0 0 0); border:0; padding:0; margin:-1px}
+
+input[type=text],input[type=date],select{font:inherit; font-size:16px; color:var(--text); background:var(--field); border:1px solid var(--line2); border-radius:9px; padding:10px 12px; width:100%; min-width:0}
+input[type=date]{min-height:44px; -webkit-appearance:none; appearance:none}
+input:focus,select:focus{outline:none; border-color:var(--accent)}
+input.bad{border-color:var(--owe); background:var(--owe-soft)}
+input::placeholder{color:var(--dim2)}
+.money{display:flex; align-items:center; background:var(--field); border:1px solid var(--line2); border-radius:9px; min-width:0}
+.money:focus-within{border-color:var(--accent)}
+.money > span{padding-left:12px; color:var(--gold); font-weight:600}
+.money input{border:none; background:none; padding-left:6px; font-variant-numeric:tabular-nums}
+.money input:focus{border:none}
+.money.bad{border-color:var(--owe); background:var(--owe-soft)}
+
+.card{background:var(--surface); border:1px solid var(--line); border-radius:13px; padding:13px; transition:background-color .25s ease, border-color .25s ease}
+.card h2,.h2{margin:0; font-size:12px; font-weight:600; color:var(--dim); text-transform:uppercase; letter-spacing:.06em}
+.row{display:flex; gap:9px; align-items:center; flex-wrap:wrap}
+.spacer{flex:1}
+.tiny{color:var(--dim2); font-size:12px}
+.stackcol{display:flex; flex-direction:column; gap:12px}
+
+#topbar{display:flex; gap:8px; align-items:center}
+#brand{display:flex; align-items:center; gap:8px; font-weight:700; letter-spacing:.02em; font-size:16px}
+.mark{width:28px; height:28px; border-radius:8px; background:var(--accent); color:var(--accent-ink); display:grid; place-items:center; font-weight:800; font-size:16px}
+#btnReports{display:flex; align-items:center; gap:6px; min-width:0; max-width:42vw; background:none; border-color:var(--line)}
+#btnReports span{overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+#btnReports::after{content:"▾"; color:var(--dim2); font-size:11px}
+
+.cardhead{display:flex; align-items:center; gap:10px; width:100%; background:none; border:none; padding:0; text-align:left}
+.cardhead:hover:not(:disabled){background:none}
+.cardhead .sum{flex:1; min-width:0; color:var(--dim2); font-size:12px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.chev{color:var(--dim2); transition:transform .15s}
+.cardhead[aria-expanded=false] .chev{transform:rotate(-90deg)}
+.fields{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px}
+.f{display:flex; flex-direction:column; gap:5px; min-width:0}
+.f > span,.f > label{font-size:12px; color:var(--dim)}
+.period{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.period .f > span{font-size:11px}
+#periodWarn{color:var(--owe); font-size:12px}
+
+/* tabs: round push-buttons. Coloured cap on a silver base; the open tab is pressed in. */
+#chips{display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; margin:0 -16px; padding:4px 12px 2px; scroll-snap-type:x proximity;
+  -webkit-mask-image:linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 22px), transparent 100%);
+          mask-image:linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 22px), transparent 100%)}
+#chips::-webkit-scrollbar{display:none}
+.pbtn{flex:none; width:80px; display:flex; flex-direction:column; align-items:center; gap:3px; padding:6px 2px 4px;
+  background:none; border:none; border-radius:12px; scroll-snap-align:start; color:var(--dim)}
+.pbtn:hover:not(:disabled){background:none}
+.pbtn:focus-visible{outline:2px solid var(--accent2); outline-offset:-2px}
+.pbtn .base{width:60px; height:60px; border-radius:50%; display:grid; place-items:center; margin-bottom:4px;
+  background:radial-gradient(circle at 50% 30%, #eef2f0 0%, #b8c1bc 55%, #77827c 100%);
+  box-shadow:0 4px 8px #000a, inset 0 -2px 3px #0005}
+.pbtn .cap{width:46px; height:46px; border-radius:50%; display:grid; place-items:center; transform:translateY(-4px);
+  background:var(--c);
+  background:radial-gradient(circle at 38% 28%, color-mix(in srgb, var(--c) 45%, white) 0%, var(--c) 42%, color-mix(in srgb, var(--c) 72%, black) 100%);
+  box-shadow:0 5px 0 color-mix(in srgb, var(--c) 50%, black), 0 7px 8px #0008;
+  color:#fff; font-weight:800; font-size:13px; letter-spacing:.02em; text-shadow:0 1px 2px #0009;
+  transition:transform .09s ease-out, box-shadow .09s ease-out}
+.pbtn:active .cap,.pbtn.on .cap{transform:translateY(0);
+  box-shadow:0 1px 0 color-mix(in srgb, var(--c) 50%, black), inset 0 3px 7px #0007}
+.pbtn.on .base{box-shadow:0 0 0 2px var(--c), 0 0 14px color-mix(in srgb, var(--c) 45%, transparent), inset 0 -2px 3px #0005}
+.pbtn .nm{font-size:12px; font-weight:600; line-height:1.2; text-align:center; max-width:100%;
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.pbtn .ct{font-size:11px; color:var(--dim2); font-variant-numeric:tabular-nums; white-space:nowrap}
+.pbtn.on .nm{color:var(--text)}
+.pbtn.on .ct{color:var(--accent2)}
+.pbtn.sum.on .ct{color:var(--gold)}
+.pbtn.sum .cap{font-size:22px; color:var(--gold)}
+.pbtn.sum.on .base{box-shadow:0 0 0 2px var(--gold), 0 0 14px #d8b25e66, inset 0 -2px 3px #0005}
+.pbtn.ghost .base{background:none; box-shadow:none; border:2px dashed var(--line3)}
+.pbtn.ghost .cap{background:none; box-shadow:none; transform:none; color:var(--dim); font-size:20px; text-shadow:none}
+.pbtn.ghost:active .cap{box-shadow:none}
+
+.addgrid{display:grid; grid-template-columns:150px 1fr 150px auto; gap:9px; margin-top:11px}
+#amtHint{min-height:16px; margin-top:6px; color:var(--gold)}
+
+.listhead{display:flex; align-items:baseline; gap:8px; margin-bottom:6px}
+.day{margin-top:8px}
+.dh{display:flex; justify-content:space-between; font-size:12px; color:var(--dim); font-weight:600; text-transform:uppercase; letter-spacing:.05em; padding:7px 2px 5px; border-bottom:1px solid var(--line)}
+.ent{display:flex; align-items:baseline; width:100%; background:none; border:none; border-radius:0; padding:11px 2px; border-bottom:1px solid var(--line); text-align:left; font-weight:400}
+.ent:hover:not(:disabled){background:var(--surface2)}
+.ent .en{min-width:0; overflow-wrap:anywhere}
+.ent .lead{flex:1; min-width:16px; border-bottom:1px dotted var(--line3); margin:0 8px; transform:translateY(-4px)}
+.ent .ea{font-weight:600; white-space:nowrap}
+.ent .ea.neg{color:var(--owe)}
+.ent .sh{font-size:11px; color:var(--dim2); margin-left:8px; white-space:nowrap}
+.mini{display:inline-block; width:7px; height:7px; border-radius:4px; margin-right:3px}
+.ent.flash{animation:flash 1.2s ease-out}
+@keyframes flash{from{background:var(--accent-soft)}to{background:transparent}}
+.editing{padding:11px 10px; margin:6px -4px; background:var(--surface2); border:1px solid var(--line3); border-radius:10px}
+.editgrid{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:9px}
+.editgrid .eName,.editgrid select{grid-column:1 / -1}
+.ctotal{display:flex; justify-content:space-between; align-items:baseline; margin-top:12px; padding:9px 2px 0; border-top:3px double var(--line3); font-weight:700}
+.ctotal b{font-size:17px; color:var(--gold)}
+.empty{color:var(--dim2); padding:22px 6px; text-align:center; border:1px dashed var(--line2); border-radius:10px; margin-top:8px}
+
+/* summary view: paper preview of what gets exported */
+.paperwrap{overflow-x:auto; margin:10px -4px 4px; padding:0 4px 6px}
+.paper{background:var(--paper); color:var(--ink); border-radius:4px; padding:14px; min-width:330px; box-shadow:0 1px 0 #0006, 0 8px 24px #0005}
+.paper table{border-collapse:collapse; width:100%; font-size:12px; font-variant-numeric:tabular-nums}
+.paper td{border:1.5px solid var(--rule); padding:5px 7px; font-weight:600; vertical-align:middle; overflow-wrap:anywhere}
+.paper td.ttl{text-align:center; font-size:13px; font-weight:800; background:var(--paper-head); padding:8px}
+.paper td.lab{width:38%}
+.paper td.miss,.paper .miss{color:var(--paper-dim); font-style:italic; font-weight:400}
+.paper tr.th td{text-align:center; background:var(--paper-head); font-weight:800}
+.paper td.r{text-align:right; white-space:nowrap}
+.paper td.c{text-align:center; white-space:nowrap}
+.paper td.reg{font-weight:400}
+.paper tr.tot td{font-weight:800; background:var(--paper-head)}
+.paper tr.go{cursor:pointer}
+.paper tr.go:hover td{background:#efeadb}
+.paper .gap{height:12px}
+.paper .foot{margin-top:8px; font-size:10px; color:var(--paper-dim); display:flex; justify-content:space-between}
+details.fold{border-top:1px solid var(--line)}
+details.fold > summary{list-style:none; cursor:pointer; display:flex; align-items:center; gap:8px; padding:11px 2px; font-weight:600}
+details.fold > summary::-webkit-details-marker{display:none}
+details.fold > summary::before{content:"▸"; color:var(--dim2); width:10px}
+details.fold[open] > summary::before{content:"▾"}
+details.fold > summary .amt{margin-left:auto; font-weight:600}
+details.fold > summary .tiny{font-weight:400}
+.sectitle{margin:18px 0 4px}
+
+.bal{display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:10px}
+.stat{display:flex; flex-direction:column; gap:4px; min-width:0; padding:10px 11px; border-radius:10px; background:var(--field); border:1px solid var(--line)}
+.stat .k{font-size:11px; color:var(--dim); text-transform:uppercase; letter-spacing:.06em; font-weight:600}
+.stat .v{font-size:20px; font-weight:700; letter-spacing:-.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.stat .money{background:none; border:none; border-bottom:1px dashed var(--line3); border-radius:0}
+.stat .money > span{padding-left:0; font-size:18px}
+.stat .money input{font-size:20px; font-weight:700; padding:0 0 0 3px; height:30px}
+#diffStat[data-state=recv]{background:var(--gold-soft); border-color:#5a4a22}
+#diffStat[data-state=recv] .v{color:var(--gold)}
+#diffStat[data-state=ret]{background:var(--owe-soft); border-color:#6a3329}
+#diffStat[data-state=ret] .v{color:var(--owe)}
+#diffStat[data-state=ok]{background:var(--accent-soft)}
+#diffStat[data-state=ok] .v{color:var(--accent2)}
+#diffStat[data-state=none] .v{color:var(--dim2); font-size:15px}
+#stackBar{display:flex; gap:2px; height:8px; margin-top:12px; border-radius:4px; overflow:hidden}
+#stackBar i{display:block; min-width:3px}
+
+#bar{position:fixed; left:0; right:0; bottom:0; z-index:5; background:color-mix(in srgb, var(--bg) 88%, transparent);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); border-top:1px solid var(--line); padding:10px 16px calc(10px + env(safe-area-inset-bottom))}
+#bar .in{max-width:760px; margin:0 auto; display:flex; align-items:center; gap:12px}
+#bar .k{font-size:11px; color:var(--dim); text-transform:uppercase; letter-spacing:.06em; font-weight:600}
+#barTotal{display:block; font-size:20px; font-weight:700}
+#bar .primary{margin-left:auto}
+body.typing #bar{display:none}
+
+dialog{background:var(--surface); color:var(--text); border:1px solid var(--line2); border-radius:14px; padding:0; width:min(560px, calc(100vw - 24px)); max-height:88vh}
+dialog::backdrop{background:#000b; backdrop-filter:blur(2px)}
+.dlg{display:flex; flex-direction:column; max-height:88vh}
+.dlg header{padding:15px 16px; border-bottom:1px solid var(--line); font-weight:700; font-size:15px; display:flex; align-items:center}
+.dlg .body{padding:14px 16px; overflow:auto; flex:1; display:flex; flex-direction:column; gap:12px}
+.dlg footer{padding:12px 16px; border-top:1px solid var(--line); display:flex; gap:9px; flex-wrap:wrap; align-items:center}
+.rep{display:flex; align-items:center; gap:10px; width:100%; text-align:left; padding:11px 12px; background:var(--field)}
+.rep.on{border-color:var(--accent); background:var(--accent-soft)}
+.rep .rn{font-weight:600}
+.rep .rs{font-size:12px; color:var(--dim)}
+.rep .rt{margin-left:auto; font-weight:600; font-variant-numeric:tabular-nums; white-space:nowrap}
+.sheetrow{display:grid; grid-template-columns:12px 1fr 36px 36px 36px; gap:7px; align-items:center; padding:10px; border:1px solid var(--line); border-radius:10px; background:var(--field)}
+.sheetrow .dot{width:12px; height:12px; border-radius:6px}
+.sheetrow .hd{grid-column:2 / -1}
+.sheetrow .hd input{font-size:14px; padding:8px 10px}
+.sheetrow .warn{grid-column:2 / -1; color:var(--owe); font-size:12px}
+.seg{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.seg button{display:flex; flex-direction:column; align-items:flex-start; gap:2px; padding:11px 13px; text-align:left; background:var(--field); font-weight:700}
+.seg button small{color:var(--dim); font-weight:400; font-size:12px}
+.seg button.on{border-color:var(--accent); background:var(--accent-soft)}
+table.xt{width:100%; border-collapse:collapse; font-size:14px}
+table.xt td{padding:8px 4px; border-bottom:1px solid var(--line)}
+table.xt td:last-child{text-align:right; font-variant-numeric:tabular-nums; font-weight:600}
+table.xt tr.tot td{border-top:3px double var(--line3); border-bottom:none; font-weight:700}
+table.xt tr.dim td{color:var(--dim)}
+.suffix{display:flex; align-items:center; gap:6px}
+.suffix span{color:var(--dim)}
+.warnbox{background:var(--gold-soft); border:1px solid #5a4a22; color:#e8cf95; border-radius:10px; padding:10px 12px; font-size:13px}
+.check{display:flex; gap:9px; align-items:center; font-size:14px}
+.check input{width:20px; height:20px; accent-color:var(--accent)}
+.step{display:grid; grid-template-columns:24px 1fr; gap:4px 10px}
+.step b{grid-row:span 2; width:24px; height:24px; border-radius:12px; background:var(--accent-soft); color:var(--accent2); display:grid; place-items:center; font-size:12px}
+.step p{margin:0; color:var(--dim)}
+
+#toast{position:fixed; left:50%; bottom:calc(84px + env(safe-area-inset-bottom)); transform:translateX(-50%) translateY(10px); background:var(--surface2); border:1px solid var(--line3); color:var(--text); padding:9px 15px; border-radius:20px; font-size:13px; opacity:0; pointer-events:none; transition:opacity .18s, transform .18s; z-index:20; max-width:calc(100vw - 32px)}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+
+@media (max-width:600px){
+  .fields{grid-template-columns:1fr}
+  .addgrid{grid-template-columns:1fr auto; grid-template-areas:"date date" "name name" "amt add"}
+  #fDate{grid-area:date} #fName{grid-area:name} #fAmtWrap{grid-area:amt} #btnAdd{grid-area:add}
+  .bal{grid-template-columns:1fr 1fr}
+  #diffStat{grid-column:1 / -1}
+  .stat .v{font-size:19px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header id="topbar">
+    <div id="brand"><span class="mark">₹</span>Expensinator</div>
+    <span class="spacer"></span>
+    <button id="btnReports" aria-label="Switch report"><span id="repName">Untitled</span></button>
+    <button id="btnHelp" class="help" aria-label="How it works">?</button>
+  </header>
+
+  <section class="card">
+    <button class="cardhead" id="detailsToggle" aria-expanded="true" aria-controls="detailsBody">
+      <h2>Shoot details</h2><span class="sum" id="detailsSum"></span><span class="chev">▾</span>
+    </button>
+    <div class="fields" id="detailsBody">
+      <label class="f"><span id="lblName">Name</span><input id="dName" type="text" autocomplete="name" placeholder="Your full name"></label>
+      <label class="f"><span>Production house</span><input id="dHouse" type="text" placeholder="Production house name"></label>
+      <label class="f"><span>Project</span><input id="dProject" type="text" placeholder="Project or shoot name"></label>
+      <div class="f"><span>Period</span>
+        <div class="period">
+          <label class="f"><span>From</span><input id="dFrom" type="date"></label>
+          <label class="f"><span>To</span><input id="dTo" type="date"></label>
+        </div>
+        <div id="periodWarn" hidden>“To” is before “From”.</div>
+      </div>
+    </div>
+  </section>
+
+  <nav id="chips" role="tablist" aria-label="Summary and sheets"></nav>
+
+  <div id="sheetView" class="stackcol">
+    <section class="card">
+      <h2 id="addTitle">Add expense</h2>
+      <div class="addgrid">
+        <input id="fDate" type="date" aria-label="Date">
+        <input id="fName" type="text" list="nameList" placeholder="What was it? e.g. Home to set" enterkeyhint="next" autocomplete="off" aria-label="Expense name">
+        <div class="money" id="fAmtWrap"><span>₹</span><input id="fAmt" type="text" inputmode="decimal" placeholder="0.00" enterkeyhint="done" autocomplete="off" aria-label="Amount"></div>
+        <button id="btnAdd" class="primary">Add</button>
+      </div>
+      <div id="amtHint" class="tiny"></div>
+      <datalist id="nameList"></datalist>
+    </section>
+    <section class="card">
+      <div class="listhead"><h2 id="listTitle">Expenses</h2><span class="spacer"></span><span id="listCount" class="tiny"></span></div>
+      <div id="entries"></div>
+    </section>
+  </div>
+
+  <section class="card" id="summaryView" hidden>
+    <div class="listhead"><h2>Summary sheet</h2><span class="spacer"></span><span class="tiny">Tap a row to open that sheet</span></div>
+    <div class="paperwrap"><div class="paper" id="topPaper"></div></div>
+    <div class="h2 sectitle">Day by day</div>
+    <div id="byDay"></div>
+    <div class="h2 sectitle">Sheets in the file</div>
+    <div id="sheetPapers"></div>
+  </section>
+
+  <section class="card" aria-label="Balance">
+    <h2>Balance</h2>
+    <div class="bal">
+      <div class="stat"><span class="k">Spent</span><span class="v" id="sSpent">₹0</span></div>
+      <div class="stat"><label class="k" for="dReceived">Received</label>
+        <div class="money" id="recWrap"><span>₹</span><input id="dReceived" type="text" inputmode="decimal" placeholder="0.00" autocomplete="off"></div></div>
+      <div class="stat" id="diffStat" data-state="none"><span class="k" id="sDiffK">Balance</span><span class="v" id="sDiff">—</span></div>
+    </div>
+    <div id="stackBar" aria-hidden="true"></div>
+  </section>
+</div>
+
+<div id="bar"><div class="in">
+  <div><span class="k">Total spent</span><b id="barTotal">₹0</b></div>
+  <button class="primary" id="btnExport">Export</button>
+</div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<dialog id="dlgReports"><div class="dlg">
+  <header>Reports<span class="spacer"></span><button class="quiet" data-close>Close</button></header>
+  <div class="body">
+    <div id="repList" class="row" style="flex-direction:column; align-items:stretch; gap:8px"></div>
+    <div class="row">
+      <button id="btnNew">New report</button>
+      <button id="btnNewSame">New, same details</button>
+      <label class="btn" for="importPicker">Import Excel</label>
+      <input type="file" id="importPicker" class="vh" accept=".xlsx,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet">
+    </div>
+    <p class="tiny" style="margin:0">Reports stay saved in this browser on this phone, even after you close it. Your exported Excel file is your backup: import it here to keep working on it.</p>
+  </div>
+  <footer><button class="del" id="btnDelReport">Delete this report</button></footer>
+</div></dialog>
+
+<dialog id="dlgSheets"><div class="dlg">
+  <header>Sheets<span class="spacer"></span><button class="quiet" data-close>Done</button></header>
+  <div class="body">
+    <label class="f"><span>Your role (used in sheet titles)</span><input id="sRole" type="text" placeholder="e.g. Art Assistant"></label>
+    <div class="tiny" id="rolePreview"></div>
+    <div id="sheetList" style="display:flex; flex-direction:column; gap:8px"></div>
+    <div class="row"><button id="btnAddSheet">+ Add sheet</button></div>
+    <p class="tiny" style="margin:0">Each sheet becomes its own tab in Excel and its own page in the PDF. The second box is the column heading on that sheet.</p>
+  </div>
+</div></dialog>
+
+<dialog id="dlgExport"><div class="dlg">
+  <header>Export<span class="spacer"></span><button class="quiet" data-close>Close</button></header>
+  <div class="body">
+    <div class="seg" role="radiogroup" aria-label="Format">
+      <button data-fmt="xlsx" role="radio">Excel<small>Editable .xlsx</small></button>
+      <button data-fmt="pdf" role="radio">PDF<small>Ready to print</small></button>
+    </div>
+    <label class="f"><span>File name</span><div class="suffix"><input id="xName" type="text" autocomplete="off"><span id="xExt">.xlsx</span></div></label>
+    <table class="xt" id="xTable"></table>
+    <label class="check"><input type="checkbox" id="xSkip"> Leave out sheets with no expenses</label>
+    <div id="xWarn"></div>
+  </div>
+  <footer><button id="btnDownload">Download</button><span class="spacer"></span><button class="primary" id="btnShare">Share</button></footer>
+</div></dialog>
+
+<dialog id="dlgHelp"><div class="dlg">
+  <header>How it works<span class="spacer"></span><button class="quiet" data-close>Close</button></header>
+  <div class="body">
+    <div class="step"><b>1</b><strong>Fill in the shoot details once</strong><p>They go at the top of every sheet. Pick the period with the From and To dates.</p></div>
+    <div class="step"><b>2</b><strong>Pick a sheet and add expenses</strong><p>Date, what it was, amount (up to 2 decimals). The date stays set so you can add a whole day quickly. You can type 200+150 in amount.</p></div>
+    <div class="step"><b>3</b><strong>Tap an expense to fix it</strong><p>Change the date, name, amount or sheet, or delete it.</p></div>
+    <div class="step"><b>4</b><strong>Check the Summary tab</strong><p>It shows the summary sheet as it will print, a day-by-day breakdown, and every sheet in the file.</p></div>
+    <div class="step"><b>5</b><strong>Export</strong><p>Excel to keep editing, PDF to print or send. Both have the summary sheet first, then every sheet.</p></div>
+    <p class="tiny" style="margin:0">Everything saves as you type and stays after you close the browser. On iPhone, use Share → Add to Home Screen so Safari never clears it.</p>
+  </div>
+</div></dialog>
+
+<script>
+'use strict';
+const PDF_W = {R:[278,278,355,556,556,889,667,191,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,278,278,584,584,584,556,1015,667,667,722,722,667,611,778,722,278,500,667,556,833,722,778,667,778,722,667,611,722,667,944,667,667,611,278,278,278,469,556,333,556,556,500,556,556,278,556,556,222,222,500,222,833,556,556,556,556,333,500,278,556,500,722,500,500,500,334,260,334,584,278,556,278,222,556,333,1000,556,556,333,1000,667,333,1000,278,611,278,278,222,222,333,333,350,556,1000,333,1000,500,333,944,278,500,667,278,333,556,556,556,556,260,556,333,737,370,556,584,333,737,552,400,549,333,333,333,576,537,333,333,333,365,556,834,834,834,611,667,667,667,667,667,667,1000,722,667,667,667,667,278,278,278,278,722,722,778,778,778,778,778,584,778,722,722,722,722,667,667,611,556,556,556,556,556,556,889,500,556,556,556,556,278,278,278,278,556,556,556,556,556,556,556,549,611,556,556,556,556,500,556,500], B:[278,333,474,556,556,889,722,238,333,333,389,584,278,333,278,278,556,556,556,556,556,556,556,556,556,556,333,333,584,584,584,611,975,722,722,722,722,667,611,778,722,278,556,722,611,833,722,778,667,778,722,667,611,722,667,944,667,667,611,333,278,333,584,556,333,556,611,556,611,556,333,611,611,278,278,556,278,889,611,611,611,611,389,556,333,611,556,778,556,556,500,389,280,389,584,278,556,278,278,556,500,1000,556,556,333,1000,667,333,1000,278,611,278,278,278,278,500,500,350,556,1000,333,1000,556,333,944,278,500,667,278,333,556,556,556,556,280,556,333,737,370,556,584,333,737,552,400,549,333,333,333,576,556,333,333,333,365,556,834,834,834,611,722,722,722,722,722,722,1000,722,667,667,667,667,278,278,278,278,722,722,778,778,778,778,778,584,778,722,722,722,722,667,667,611,556,556,556,556,556,556,889,556,556,556,556,556,278,278,278,278,611,611,611,611,611,611,611,549,611,611,611,611,611,556,611,556]};
+/* ================= helpers ================= */
+const KEY = 'expensinator.v1', OLD_KEYS = ['kharcha.v1'];
+const MIME = {xlsx: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', pdf: 'application/pdf'};
+const PAL = ['#4cc38a','#e0b252','#5fb3e8','#ec8a6c','#a68bec','#3fc1b0','#e57fa8','#a9cf5a'];
+const DEFAULT_CATS = [['Non GST','NON GST BILL'],['GST','GST BILL'],['Porter','PORTER'],['Travel','TRAVEL EXPENSES DETAILS'],['Food','FOOD EXPENSES DETAILS']];
+const DEFAULT_ROLE = 'Art Assistant';
+const SUMMARY = 'summary';
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nf = new Intl.NumberFormat('en-IN', {maximumFractionDigits: 2});
+const nf2 = new Intl.NumberFormat('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+const money = n => (n < 0 ? '−₹' : '₹') + (Math.abs(n || 0) % 1 ? nf2 : nf).format(Math.abs(n || 0));
+const plain = (n, dec) => (n < 0 ? '-' : '') + (dec ? nf2 : nf).format(Math.abs(n || 0));
+const r2 = n => Math.round(n * 100) / 100;
+const pad = n => String(n).padStart(2, '0');
+const uid = () => Math.random().toString(36).slice(2, 9) + Date.now().toString(36).slice(-4);
+const todayISO = () => { const d = new Date(); return `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`; };
+const col = c => PAL[((c && c.color) || 0) % PAL.length];
+/* Short label on the button cap: GST stays GST, "Non GST" -> NG, "Travel Expenses" -> T */
+const abbr = name => { const w = String(name).trim().split(/\s+/).filter(x => !/^expenses?$/i.test(x)); if (!w.length) return String(name).trim().slice(0, 1).toUpperCase(); if (w.length === 1) return w[0].length <= 3 ? w[0].toUpperCase() : w[0][0].toUpperCase(); return w.slice(0, 2).map(x => x[0]).join('').toUpperCase(); };
+const autoHead = name => String(name).trim().toUpperCase() + ' EXPENSES DETAILS';
+const sheetTitle = (role, name) => { const n = String(name).trim().toUpperCase(); return (role ? role.trim().toUpperCase() + ' ' : '') + n + (/EXPENSES?$/.test(n) ? '' : ' EXPENSES'); };
+const MON = ['Jan','Feb','Mar','Apr','May','June','July','Aug','Sept','Oct','Nov','Dec'];
+const MON3 = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function ord(n) { const s = ['th','st','nd','rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+const ymd = iso => iso.split('-').map(Number);
+const shortDate = iso => { if (!iso) return ''; const [y, m, d] = ymd(iso); return `${pad(d)}-${MON3[m - 1]}-${String(y).slice(2)}`; };
+
+/* Amount fields: digits and one dot, at most 2 decimals per number; + and - allowed for quick sums. */
+function cleanAmt(v) {
+  v = String(v).replace(/[^0-9.+\-]/g, '');
+  return v.split(/([+\-])/).map(t => {
+    if (t === '+' || t === '-') return t;
+    const i = t.indexOf('.'); if (i < 0) return t;
+    return t.slice(0, i + 1) + t.slice(i + 1).replace(/\./g, '').slice(0, 2);
+  }).join('');
+}
+function parseAmt(s) {
+  s = String(s ?? '').replace(/[₹,\s]/g, '');
+  if (!s) return null;
+  if (!/^[0-9.+\-]+$/.test(s)) return NaN;
+  const parts = s.match(/[+\-]?[^+\-]+/g);
+  if (!parts) return NaN;
+  let t = 0;
+  for (const p of parts) { const v = Number(p); if (!isFinite(v)) return NaN; t += v; }
+  return r2(t);
+}
+function bindAmt(input) { input.addEventListener('input', () => { const c = cleanAmt(input.value); if (c !== input.value) input.value = c; }); }
+function dayLabel(iso) {
+  if (!iso) return 'No date';
+  const [y, m, d] = ymd(iso);
+  return new Date(y, m - 1, d).toLocaleDateString('en-IN', {weekday: 'short', day: 'numeric', month: 'short'});
+}
+function periodText(r) {
+  let a = r.periodFrom || '', b = r.periodTo || '';
+  if (!a && !b) return '';
+  if (!a || !b || a === b) { const [, m, d] = ymd(a || b); return `${ord(d)} ${MON[m - 1]}`; }
+  if (b < a) [a, b] = [b, a];
+  const [y1, m1, d1] = ymd(a), [y2, m2, d2] = ymd(b);
+  if (y1 !== y2) return `${ord(d1)} ${MON[m1 - 1]} ${y1} to ${ord(d2)} ${MON[m2 - 1]} ${y2}`;
+  if (m1 === m2) return `${ord(d1)} to ${ord(d2)} ${MON[m1 - 1]}`;
+  return `${ord(d1)} ${MON[m1 - 1]} to ${ord(d2)} ${MON[m2 - 1]}`;
+}
+/* Reads text like "28th to 30th sept" or "28th Sept to 1st Oct" into two dates (used on import). */
+function parsePeriod(t, yearHint) {
+  if (!t) return null;
+  const M = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+  const re = /(\d{1,2})(?:st|nd|rd|th)?\s*([a-z]{3,})?\.?\s*(\d{4})?/gi, hits = []; let m;
+  while ((m = re.exec(t)) && hits.length < 2) if (+m[1] >= 1 && +m[1] <= 31) hits.push({d: +m[1], m: M[(m[2] || '').slice(0, 3).toLowerCase()], y: m[3] ? +m[3] : 0});
+  if (!hits.length) return null;
+  const h1 = hits[0], h2 = hits[1] || hits[0];
+  const m2 = h2.m || h1.m, m1 = h1.m || m2; if (!m1) return null;
+  const y2 = h2.y || h1.y || yearHint, y1 = h1.y || (m1 > m2 ? y2 - 1 : y2);
+  return [`${y1}-${pad(m1)}-${pad(h1.d)}`, `${y2}-${pad(m2)}-${pad(h2.d)}`];
+}
+const sorted = list => list.slice().sort((a, b) => (a.date || '9999').localeCompare(b.date || '9999') || a.seq - b.seq);
+
+/* ================= state ================= */
+function newCat(name, head, color) { return {id: uid(), name, head: head || autoHead(name), headAuto: !head, color: color ?? 0}; }
+function newReport(base) {
+  return {
+    id: uid(), created: Date.now(), updated: Date.now(), seq: 0,
+    fields: base ? {name: base.fields.name, house: base.fields.house, project: base.fields.project} : {name: '', house: '', project: ''},
+    periodFrom: '', periodTo: '', role: base ? base.role : DEFAULT_ROLE, received: '',
+    cats: base ? base.cats.map(c => ({...c, id: uid()})) : DEFAULT_CATS.map(([n, h], i) => newCat(n, h, i)),
+    entries: [], lastDate: '', drafts: {}
+  };
+}
+function normalize(r) {
+  if (r.role === undefined || /^ART ASST\.?$/i.test(String(r.role).trim())) r.role = DEFAULT_ROLE;
+  if (r.periodFrom === undefined) {
+    const yr = +((r.entries.map(e => e.date).filter(Boolean).sort()[0] || todayISO()).slice(0, 4));
+    const p = parsePeriod(r.fields && r.fields.period, yr);
+    r.periodFrom = p ? p[0] : ''; r.periodTo = p ? p[1] : '';
+  }
+  if (!r.drafts) r.drafts = {};
+  return r;
+}
+function load() {
+  for (const k of [KEY, ...OLD_KEYS]) {
+    try { const j = JSON.parse(localStorage.getItem(k)); if (j && j.reports) { Object.values(j.reports).forEach(normalize); return j; } } catch (e) {}
+  }
+  return {activeId: null, reports: {}};
+}
+let db = load();
+let saveOK = true;
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(db)); saveOK = true; }
+  catch (e) { if (saveOK) toast('Couldn’t save in this browser. Export now so nothing is lost.'); saveOK = false; }
+}
+const R = () => db.reports[db.activeId];
+const isSummary = () => R().activeCat === SUMMARY;
+const cat = () => R().cats.find(c => c.id === R().activeCat) || R().cats[0];
+function ensure() {
+  if (!db.activeId || !db.reports[db.activeId]) {
+    const ids = Object.keys(db.reports).sort((a, b) => db.reports[b].updated - db.reports[a].updated);
+    if (ids.length) db.activeId = ids[0];
+    else { const r = newReport(); db.reports[r.id] = r; db.activeId = r.id; }
+  }
+  const r = R();
+  if (!r.cats.length) r.cats.push(newCat('Expenses'));
+  if (r.activeCat !== SUMMARY && !r.cats.find(c => c.id === r.activeCat)) r.activeCat = r.cats[0].id;
+}
+function touch() { R().updated = Date.now(); save(); }
+const catTotal = (r, cid) => r2(r.entries.filter(e => e.cat === cid).reduce((a, e) => a + e.amt, 0));
+const spentOf = r => r2(r.entries.reduce((a, e) => a + e.amt, 0));
+const reportTitle = r => r.fields.project || r.fields.house || 'Untitled report';
+
+let ui = {editing: null, delArm: null, sheetArm: null, fmt: db.fmt || 'xlsx'};
+
+/* One model feeds the Excel file, the PDF and the on-screen preview, so all three match. */
+function buildModel(r, skipEmpty) {
+  const role = (r.role || '').trim();
+  const hdr = [[(role ? role.toUpperCase() + ' ' : '') + 'NAME', r.fields.name], ['PRODUCTION HOUSE', r.fields.house], ['PERIOD', periodText(r)], ['PROJECT', r.fields.project]];
+  const sheets = r.cats.filter(c => !skipEmpty || r.entries.some(e => e.cat === c.id)).map(c => {
+    const list = sorted(r.entries.filter(e => e.cat === c.id)), groups = [];
+    for (const e of list) { const g = groups[groups.length - 1]; if (g && g.date === e.date) g.rows.push(e); else groups.push({date: e.date, rows: [e]}); }
+    return {cat: c, name: c.name.trim(), title: sheetTitle(role, c.name), head: (c.head || c.name).trim().toUpperCase(), groups, count: list.length, total: catTotal(r, c.id)};
+  });
+  const spent = r2(sheets.reduce((a, s) => a + s.total, 0));
+  const recV = parseAmt(r.received), rec = recV == null || Number.isNaN(recV) ? 0 : recV, bal = r2(spent - rec);
+  return {
+    hdr, sheets, spent, rec, bal, recBlank: recV == null,
+    balLabel: bal < 0 ? 'AMOUNT TO RETURN' : 'AMOUNT TO RECEIVE',
+    topTitle: 'TOP SHEET - SHOOT EXPENSES AND AMOUNT RECEIVED DETAILS',
+    decimals: r.entries.some(e => e.amt % 1 !== 0) || rec % 1 !== 0
+  };
+}
+
+/* ================= render ================= */
+function renderAll() {
+  ensure();
+  $('#repName').textContent = reportTitle(R());
+  fillDetails(); renderChips(); renderView(); renderMoney();
+}
+function renderView() {
+  const s = isSummary();
+  $('#sheetView').hidden = s; $('#summaryView').hidden = !s;
+  if (s) renderSummary(); else { renderAdd(); renderEntries(); }
+}
+function fillDetails() {
+  const r = R();
+  $('#dName').value = r.fields.name; $('#dHouse').value = r.fields.house; $('#dProject').value = r.fields.project;
+  $('#dFrom').value = r.periodFrom || ''; $('#dTo').value = r.periodTo || '';
+  $('#dReceived').value = r.received;
+  $('#lblName').textContent = r.role ? `Name (${r.role} name)` : 'Name';
+  checkPeriod(); renderDetailsSum(); setDetailsOpen(db.detailsOpen === true || !r.fields.name);
+}
+function checkPeriod() {
+  const r = R(), bad = !!(r.periodFrom && r.periodTo && r.periodTo < r.periodFrom);
+  $('#periodWarn').hidden = !bad; $('#dTo').classList.toggle('bad', bad);
+}
+function renderDetailsSum() { const r = R(); $('#detailsSum').textContent = [r.fields.name, r.fields.project, periodText(r)].filter(Boolean).join(' · '); }
+function setDetailsOpen(open) {
+  $('#detailsToggle').setAttribute('aria-expanded', open);
+  $('#detailsBody').hidden = !open; $('#detailsSum').hidden = open;
+}
+function renderMoney() {
+  const r = R(), s = spentOf(r);
+  $('#sSpent').textContent = money(s); $('#barTotal').textContent = money(s);
+  const rec = parseAmt(r.received), st = $('#diffStat');
+  $('#recWrap').classList.toggle('bad', Number.isNaN(rec));
+  if (rec == null || Number.isNaN(rec)) { $('#sDiffK').textContent = 'Balance'; $('#sDiff').textContent = 'Add amount received'; st.dataset.state = 'none'; }
+  else {
+    const d = r2(s - rec);
+    $('#sDiffK').textContent = d > 0 ? 'To receive' : d < 0 ? 'To return' : 'Settled';
+    st.dataset.state = d > 0 ? 'recv' : d < 0 ? 'ret' : 'ok';
+    $('#sDiff').textContent = money(Math.abs(d));
+  }
+  const bar = $('#stackBar');
+  bar.hidden = s <= 0;
+  bar.innerHTML = s > 0 ? r.cats.map(c => { const t = catTotal(r, c.id); return t > 0 ? `<i style="flex:${t};background:${col(c)}"></i>` : ''; }).join('') : '';
+  if (isSummary()) renderSummary();
+}
+function renderChips() {
+  const r = R();
+  const btn = (id, label, total, color, glyph, extra) => `<button class="pbtn${extra}${(id === SUMMARY ? isSummary() : id === r.activeCat) ? ' on' : ''}" role="tab" aria-selected="${id === SUMMARY ? isSummary() : id === r.activeCat}" data-cat="${id}" style="--c:${color}"><span class="base"><span class="cap">${esc(glyph)}</span></span><span class="nm">${esc(label)}</span><span class="ct">${money(total)}</span></button>`;
+  $('#chips').innerHTML = btn(SUMMARY, 'Summary', spentOf(r), '#56645d', '≡', ' sum')
+    + r.cats.map(c => btn(c.id, c.name, catTotal(r, c.id), col(c), abbr(c.name), '')).join('')
+    + `<button class="pbtn ghost" id="btnSheets" aria-label="Edit sheets"><span class="base"><span class="cap">+</span></span><span class="nm">Edit sheets</span><span class="ct">&nbsp;</span></button>`;
+  applyTheme(isSummary() ? '#d8b25e' : col(cat()));
+  const on = $('#chips .pbtn.on'); if (on && on.scrollIntoView) on.scrollIntoView({block: 'nearest', inline: 'nearest'});
+}
+/* The whole UI takes the colour of the open tab: accents, highlights and a light tint on the background. */
+function applyTheme(c) {
+  const st = document.documentElement.style, mix = (pct, base) => `color-mix(in srgb, ${c} ${pct}%, ${base})`;
+  st.setProperty('--accent', c);
+  st.setProperty('--accent2', mix(78, 'white'));
+  st.setProperty('--accent-soft', mix(22, '#0c110f'));
+  st.setProperty('--bg', mix(6, '#0c110f'));
+  st.setProperty('--surface', mix(6, '#131916'));
+  st.setProperty('--surface2', mix(7, '#1a221e'));
+  st.setProperty('--field', mix(4, '#0f1512'));
+  st.setProperty('--line', mix(10, '#212b26'));
+  const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = getComputedStyle(document.body).backgroundColor;
+}
+function renderAdd() {
+  const r = R();
+  $('#addTitle').textContent = 'Add to ' + cat().name;
+  if (!$('#fDate').value) $('#fDate').value = r.lastDate || todayISO();
+  restoreDraft(); renderNames();
+}
+function renderNames() {
+  const r = R(), seen = new Set(), out = [];
+  for (const e of r.entries.slice().reverse()) if (e.cat === cat().id && !seen.has(e.name.toLowerCase())) { seen.add(e.name.toLowerCase()); out.push(e.name); if (out.length >= 40) break; }
+  $('#nameList').innerHTML = out.map(n => `<option value="${esc(n)}"></option>`).join('');
+}
+function renderEntries(flashId) {
+  if (isSummary()) return;
+  const r = R(), c = cat();
+  const list = sorted(r.entries.filter(e => e.cat === c.id));
+  $('#listTitle').textContent = c.name;
+  $('#listCount').textContent = list.length ? `${list.length} ${list.length === 1 ? 'entry' : 'entries'}` : '';
+  if (!list.length) { $('#entries').innerHTML = `<div class="empty">No ${esc(c.name)} expenses yet. Add the first one above.</div>`; return; }
+  let html = '', i = 0;
+  while (i < list.length) {
+    let j = i; while (j + 1 < list.length && list[j + 1].date === list[i].date) j++;
+    const grp = list.slice(i, j + 1), sum = r2(grp.reduce((a, e) => a + e.amt, 0));
+    html += `<div class="day"><div class="dh"><span>${dayLabel(grp[0].date)}</span><span class="amt">${money(sum)}</span></div>`;
+    for (const e of grp) html += ui.editing === e.id ? editRow(e) :
+      `<button class="ent${e.id === flashId ? ' flash' : ''}" data-id="${e.id}"><span class="en">${esc(e.name)}</span><span class="lead"></span><span class="ea${e.amt < 0 ? ' neg' : ''}">${money(e.amt)}</span></button>`;
+    html += '</div>';
+    i = j + 1;
+  }
+  html += `<div class="ctotal"><span>Total ${esc(c.name)}</span><b class="num">${money(catTotal(r, c.id))}</b></div>`;
+  $('#entries').innerHTML = html;
+  $('#entries').querySelectorAll('.eAmt').forEach(bindAmt);
+}
+function editRow(e) {
+  const r = R(), armed = ui.delArm === e.id;
+  return `<div class="editing" data-id="${e.id}">
+    <div class="editgrid">
+      <input class="eName" type="text" value="${esc(e.name)}" aria-label="Expense name">
+      <input class="eDate" type="date" value="${esc(e.date)}" aria-label="Date">
+      <div class="money"><span>₹</span><input class="eAmt" type="text" inputmode="decimal" value="${e.amt}" aria-label="Amount"></div>
+      ${r.cats.length > 1 ? `<select class="eCat" aria-label="Sheet">${r.cats.map(c => `<option value="${c.id}"${c.id === e.cat ? ' selected' : ''}>Sheet: ${esc(c.name)}</option>`).join('')}</select>` : ''}
+    </div>
+    <div class="row"><button class="primary" data-act="save" style="padding:9px 18px">Save</button><button data-act="cancel">Cancel</button><span class="spacer"></span>
+      <button class="del${armed ? ' armed' : ''}" data-act="del">${armed ? 'Tap again to delete' : 'Delete'}</button></div>
+  </div>`;
+}
+
+/* summary tab: the same layout the Excel and PDF use */
+const hdrRows = m => m.hdr.map(([l, v]) => `<tr><td class="lab">${esc(l)}</td><td${v ? '' : ' class="miss"'}>${v ? esc(v) : 'Not filled in'}</td></tr>`).join('');
+function renderSummary() {
+  const r = R(), m = buildModel(r, false), dec = m.decimals;
+  let h = `<table><tr><td colspan="2" class="ttl">${esc(m.topTitle)}</td></tr>${hdrRows(m)}</table><div class="gap"></div><table>
+    <tr class="th"><td style="width:16%">SR. NO.</td><td>DETAIL OF EXPENSES</td><td style="width:30%">AMOUNT</td></tr>`;
+  m.sheets.forEach((s, i) => { h += `<tr class="go" data-goto="${s.cat.id}"><td class="c">${i + 1}</td><td>${esc(s.name)}</td><td class="r">${plain(s.total, dec)}</td></tr>`; });
+  h += `<tr class="tot"><td colspan="2">TOTAL CASH EXPENSES</td><td class="r">${plain(m.spent, dec)}</td></tr></table><div class="gap"></div><table>
+    <tr><td>AMOUNT RECEIVED</td><td class="r${m.recBlank ? ' miss' : ''}" style="width:30%">${plain(m.rec, dec)}</td></tr></table><div class="gap"></div><table>
+    <tr class="tot"><td>${m.balLabel}</td><td class="r" style="width:30%">${plain(Math.abs(m.bal), dec)}</td></tr></table>
+    <div class="foot"><span>Summary sheet</span><span>Followed by ${m.sheets.length} ${m.sheets.length === 1 ? 'sheet' : 'sheets'}</span></div>`;
+  $('#topPaper').innerHTML = h;
+
+  const byDate = new Map();
+  for (const e of sorted(r.entries)) { if (!byDate.has(e.date)) byDate.set(e.date, []); byDate.get(e.date).push(e); }
+  const open = ui.openDays || new Set();
+  $('#byDay').innerHTML = byDate.size ? [...byDate].map(([d, list]) => {
+    const tot = r2(list.reduce((a, e) => a + e.amt, 0));
+    return `<details class="fold" data-day="${esc(d)}"${open.has(d) ? ' open' : ''}><summary>${esc(dayLabel(d))} <span class="tiny">${list.length} ${list.length === 1 ? 'expense' : 'expenses'}</span><span class="amt">${money(tot)}</span></summary>
+      ${list.map(e => { const c = r.cats.find(x => x.id === e.cat); return `<button class="ent" data-goto="${e.cat}" data-id="${e.id}"><span class="en">${esc(e.name)}<span class="sh"><i class="mini" style="background:${col(c)}"></i>${esc(c ? c.name : '')}</span></span><span class="lead"></span><span class="ea">${money(e.amt)}</span></button>`; }).join('')}</details>`;
+  }).join('') : `<div class="empty">No expenses yet.</div>`;
+
+  $('#sheetPapers').innerHTML = m.sheets.map(s => {
+    let t = `<table><tr><td colspan="2" class="ttl">${esc(s.title)}</td></tr>${hdrRows(m)}</table><div class="gap"></div><table>
+      <tr class="th"><td style="width:12%">SR NO</td><td style="width:20%">DATE</td><td>${esc(s.head)}</td><td style="width:22%">AMOUNT</td></tr>`;
+    let n = 0;
+    for (const g of s.groups) g.rows.forEach((e, k) => { n++; t += `<tr><td class="c">${n}</td>${k === 0 ? `<td class="c" rowspan="${g.rows.length}">${esc(shortDate(g.date))}</td>` : ''}<td class="reg">${esc(e.name)}</td><td class="r">${plain(e.amt, dec)}</td></tr>`; });
+    if (!n) t += `<tr><td>&nbsp;</td><td></td><td class="miss">No expenses</td><td></td></tr>`;
+    t += `<tr class="tot"><td colspan="3">TOTAL</td><td class="r">${plain(s.total, dec)}</td></tr></table>`;
+    return `<details class="fold"><summary><i class="mini" style="width:9px;height:9px;border-radius:5px;background:${col(s.cat)}"></i>${esc(s.name)} <span class="tiny">${s.count} ${s.count === 1 ? 'entry' : 'entries'}</span><span class="amt">${money(s.total)}</span></summary><div class="paperwrap"><div class="paper">${t}</div></div></details>`;
+  }).join('');
+}
+
+/* ================= actions ================= */
+let toastT;
+function toast(msg) { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2400); }
+function flag(el) { el.classList.add('bad'); setTimeout(() => el.classList.remove('bad'), 1600); }
+
+function saveDraft() {
+  const r = R(); if (isSummary()) return;
+  const name = $('#fName').value, amt = $('#fAmt').value;
+  if (name || amt) r.drafts[cat().id] = {name, amt}; else delete r.drafts[cat().id];
+  save();
+}
+function restoreDraft() {
+  const d = R().drafts[cat().id] || {};
+  $('#fName').value = d.name || ''; $('#fAmt').value = d.amt || ''; amtHint();
+}
+function amtHint() {
+  const v = $('#fAmt').value, a = parseAmt(v);
+  $('#amtHint').textContent = /[+\-]/.test(v.replace(/^-/, '')) && a != null && !Number.isNaN(a) ? `= ${money(a)}` : '';
+}
+function addEntry() {
+  const r = R(), nameEl = $('#fName'), amtEl = $('#fAmt');
+  const name = nameEl.value.trim(), amt = parseAmt(amtEl.value), date = $('#fDate').value;
+  if (!name) { flag(nameEl); toast('Add a name for this expense'); nameEl.focus(); return; }
+  if (amt == null || Number.isNaN(amt)) { flag($('#fAmtWrap')); toast('Type the amount in numbers, like 450 or 99.50'); amtEl.focus(); return; }
+  const e = {id: uid(), cat: cat().id, date, name, amt, seq: ++r.seq};
+  r.entries.push(e); r.lastDate = date; delete r.drafts[cat().id];
+  touch();
+  nameEl.value = ''; amtEl.value = ''; amtHint();
+  renderMoney(); renderChips(); renderEntries(e.id); renderNames();
+  nameEl.focus();
+  toast(`Added ${money(amt)} to ${cat().name}`);
+}
+/* Saves an open edit (when valid) so nothing is lost on tab switches or when the browser closes. */
+function saveEdit(box, quiet) {
+  const r = R(), e = box && r.entries.find(x => x.id === box.dataset.id); if (!e) return false;
+  const name = box.querySelector('.eName').value.trim(), amt = parseAmt(box.querySelector('.eAmt').value);
+  if (!name) { if (!quiet) { flag(box.querySelector('.eName')); toast('Name can’t be empty'); } return false; }
+  if (amt == null || Number.isNaN(amt)) { if (!quiet) { flag(box.querySelector('.eAmt').parentNode); toast('Type the amount in numbers'); } return false; }
+  const sel = box.querySelector('.eCat'), moved = sel && sel.value !== e.cat;
+  e.name = name; e.amt = amt; e.date = box.querySelector('.eDate').value; if (sel) e.cat = sel.value;
+  ui.editing = null; ui.delArm = null; touch();
+  if (!quiet) { renderMoney(); renderChips(); renderEntries(moved ? null : e.id); renderNames(); toast(moved ? `Moved to ${r.cats.find(c => c.id === e.cat).name}` : 'Saved'); }
+  return true;
+}
+function commitEdit() { const box = $('#entries .editing'); if (box) saveEdit(box, true); ui.editing = null; ui.delArm = null; }
+function switchTab(id) {
+  commitEdit(); if (!isSummary()) saveDraft();
+  R().activeCat = id; save();
+  renderChips(); renderView(); renderMoney();
+}
+
+/* details */
+const FIELD_IDS = {dName: 'name', dHouse: 'house', dProject: 'project'};
+for (const [id, k] of Object.entries(FIELD_IDS)) $('#' + id).addEventListener('input', ev => {
+  const r = R(); r.fields[k] = ev.target.value; touch(); renderDetailsSum(); $('#repName').textContent = reportTitle(r);
+  if (isSummary()) renderSummary();
+});
+for (const [id, k] of [['dFrom', 'periodFrom'], ['dTo', 'periodTo']]) $('#' + id).addEventListener('change', ev => {
+  const r = R(); r[k] = ev.target.value;
+  if (k === 'periodFrom' && r.periodFrom && !r.periodTo) { r.periodTo = r.periodFrom; $('#dTo').value = r.periodTo; }
+  touch(); checkPeriod(); renderDetailsSum(); if (isSummary()) renderSummary();
+});
+$('#detailsToggle').onclick = () => { const open = $('#detailsToggle').getAttribute('aria-expanded') !== 'true'; db.detailsOpen = open; save(); setDetailsOpen(open); };
+bindAmt($('#dReceived'));
+$('#dReceived').addEventListener('input', ev => { R().received = ev.target.value; touch(); renderMoney(); });
+
+$('#chips').addEventListener('click', ev => {
+  const b = ev.target.closest('button'); if (!b) return;
+  if (b.id === 'btnSheets') return openSheets();
+  switchTab(b.dataset.cat);
+});
+
+/* add */
+bindAmt($('#fAmt'));
+$('#btnAdd').onclick = addEntry;
+$('#fName').addEventListener('input', saveDraft);
+$('#fAmt').addEventListener('input', () => { saveDraft(); amtHint(); });
+$('#fName').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); $('#fAmt').focus(); } });
+$('#fAmt').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addEntry(); } });
+$('#fDate').addEventListener('change', e => { R().lastDate = e.target.value; save(); });
+
+/* list */
+$('#entries').addEventListener('click', ev => {
+  const act = ev.target.closest('[data-act]');
+  if (act) {
+    const box = act.closest('.editing');
+    if (act.dataset.act === 'cancel') { ui.editing = null; ui.delArm = null; renderEntries(); }
+    else if (act.dataset.act === 'save') saveEdit(box);
+    else if (act.dataset.act === 'del') {
+      if (ui.delArm !== box.dataset.id) { ui.delArm = box.dataset.id; act.classList.add('armed'); act.textContent = 'Tap again to delete'; return; }
+      const r = R(); r.entries = r.entries.filter(x => x.id !== box.dataset.id);
+      ui.editing = null; ui.delArm = null; touch();
+      renderMoney(); renderChips(); renderEntries(); renderNames(); toast('Deleted');
+    }
+    return;
+  }
+  const row = ev.target.closest('button.ent');
+  if (row) { commitEdit(); ui.editing = row.dataset.id; renderEntries(); const n = $('#entries .eName'); if (n) n.focus(); }
+});
+$('#entries').addEventListener('keydown', ev => {
+  if (ev.key === 'Enter' && ev.target.closest('.editing') && ev.target.tagName === 'INPUT') { ev.preventDefault(); saveEdit(ev.target.closest('.editing')); }
+});
+/* summary: open a sheet, or jump straight to an expense */
+$('#summaryView').addEventListener('click', ev => {
+  const g = ev.target.closest('[data-goto]'); if (!g) return;
+  switchTab(g.dataset.goto);
+  if (g.dataset.id) { ui.editing = g.dataset.id; renderEntries(); const el = $('#entries .editing'); if (el) el.scrollIntoView({block: 'center'}); }
+  else window.scrollTo({top: 0});
+});
+$('#byDay').addEventListener('toggle', ev => {
+  const d = ev.target.closest('details'); if (!d) return;
+  ui.openDays = ui.openDays || new Set(); d.open ? ui.openDays.add(d.dataset.day) : ui.openDays.delete(d.dataset.day);
+}, true);
+
+/* keep everything saved if the browser is closed or the app goes to the background */
+function flush() { commitEdit(); if (!isSummary()) saveDraft(); save(); }
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flush(); });
+window.addEventListener('pagehide', flush);
+if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+
+const coarse = matchMedia('(pointer:coarse)').matches;
+document.addEventListener('focusin', e => { if (coarse && e.target.matches('input[type=text],input[type=date]') && !e.target.closest('dialog')) document.body.classList.add('typing'); });
+document.addEventListener('focusout', () => setTimeout(() => { if (!document.activeElement || !document.activeElement.matches('input')) document.body.classList.remove('typing'); }, 60));
+
+document.querySelectorAll('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d || e.target.closest('[data-close]')) d.close(); }));
+$('#btnHelp').onclick = () => $('#dlgHelp').showModal();
+
+/* reports */
+function renderReports() {
+  const ids = Object.keys(db.reports).sort((a, b) => db.reports[b].updated - db.reports[a].updated);
+  $('#repList').innerHTML = ids.map(id => {
+    const r = db.reports[id], sub = [r.fields.house, periodText(r), `${r.entries.length} entries`].filter(Boolean).join(' · ');
+    return `<button class="rep${id === db.activeId ? ' on' : ''}" data-rep="${id}"><span><span class="rn">${esc(reportTitle(r))}</span><br><span class="rs">${esc(sub)}</span></span><span class="rt">${money(spentOf(r))}</span></button>`;
+  }).join('');
+  ui.repArm = false; $('#btnDelReport').textContent = 'Delete this report'; $('#btnDelReport').classList.remove('armed');
+}
+function switchTo(id) { flush(); db.activeId = id; ui.editing = null; ui.openDays = null; $('#fDate').value = ''; save(); renderAll(); }
+$('#btnReports').onclick = () => { flush(); renderReports(); $('#dlgReports').showModal(); };
+$('#repList').addEventListener('click', e => { const b = e.target.closest('[data-rep]'); if (!b) return; switchTo(b.dataset.rep); $('#dlgReports').close(); });
+$('#btnNew').onclick = () => { const r = newReport(); db.reports[r.id] = r; db.detailsOpen = true; switchTo(r.id); $('#dlgReports').close(); toast('New report started'); };
+$('#btnNewSame').onclick = () => { const r = newReport(R()); db.reports[r.id] = r; switchTo(r.id); $('#dlgReports').close(); toast('New report with the same details and sheets'); };
+$('#btnDelReport').onclick = () => {
+  const b = $('#btnDelReport');
+  if (!ui.repArm) { ui.repArm = true; b.classList.add('armed'); b.textContent = `Tap again to delete “${reportTitle(R())}”`; return; }
+  delete db.reports[db.activeId]; db.activeId = null; ensure(); save(); renderAll(); $('#dlgReports').close(); toast('Report deleted');
+};
+
+/* sheets */
+function openSheets() { flush(); ui.sheetArm = null; $('#sRole').value = R().role || ''; renderSheets(); $('#dlgSheets').showModal(); }
+function renderRolePreview() { $('#rolePreview').textContent = 'Sheet titles read: ' + sheetTitle(R().role, cat().name); }
+function renderSheets() {
+  const r = R();
+  $('#sheetList').innerHTML = r.cats.map((c, i) => {
+    const n = r.entries.filter(e => e.cat === c.id).length;
+    return `<div class="sheetrow" data-cid="${c.id}">
+      <i class="dot" style="background:${col(c)}"></i>
+      <input type="text" class="sName" value="${esc(c.name)}" aria-label="Sheet name">
+      <button class="icon" data-mv="-1" ${i === 0 ? 'disabled' : ''} aria-label="Move up">↑</button>
+      <button class="icon" data-mv="1" ${i === r.cats.length - 1 ? 'disabled' : ''} aria-label="Move down">↓</button>
+      <button class="icon del${ui.sheetArm === c.id ? ' armed' : ''}" data-rm aria-label="Delete sheet" ${r.cats.length === 1 ? 'disabled' : ''}>✕</button>
+      <div class="hd"><input type="text" class="sHead" value="${esc(c.head)}" aria-label="Column heading"></div>
+      ${ui.sheetArm === c.id ? `<div class="warn">${n ? `This deletes ${n} ${n === 1 ? 'expense' : 'expenses'} too. ` : ''}Tap ✕ again to delete.</div>` : ''}
+    </div>`;
+  }).join('');
+  renderRolePreview();
+}
+$('#sRole').addEventListener('input', e => { R().role = e.target.value.trim(); touch(); renderRolePreview(); $('#lblName').textContent = R().role ? `Name (${R().role} name)` : 'Name'; if (isSummary()) renderSummary(); });
+$('#sheetList').addEventListener('input', e => {
+  const row = e.target.closest('.sheetrow'), r = R(), c = r.cats.find(x => x.id === row.dataset.cid);
+  if (e.target.classList.contains('sName')) {
+    c.name = e.target.value; if (c.headAuto) { c.head = autoHead(c.name); row.querySelector('.sHead').value = c.head; }
+    renderRolePreview();
+  } else { c.head = e.target.value; c.headAuto = false; }
+  touch(); renderChips();
+});
+$('#sheetList').addEventListener('change', e => { if (e.target.classList.contains('sName')) { const c = R().cats.find(x => x.id === e.target.closest('.sheetrow').dataset.cid); c.name = c.name.trim() || 'Sheet'; e.target.value = c.name; touch(); renderAll(); } });
+$('#sheetList').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const r = R(), id = b.closest('.sheetrow').dataset.cid, i = r.cats.findIndex(c => c.id === id);
+  if (b.dataset.mv) { const j = i + Number(b.dataset.mv); [r.cats[i], r.cats[j]] = [r.cats[j], r.cats[i]]; ui.sheetArm = null; }
+  else if ('rm' in b.dataset) {
+    if (ui.sheetArm !== id) { ui.sheetArm = id; renderSheets(); return; }
+    r.cats.splice(i, 1); r.entries = r.entries.filter(x => x.cat !== id); delete r.drafts[id]; ui.sheetArm = null; ensure();
+  }
+  touch(); renderSheets(); renderAll();
+});
+$('#btnAddSheet').onclick = () => {
+  const r = R(), used = new Set(r.cats.map(c => c.color));
+  let color = 0; while (used.has(color) && color < PAL.length) color++;
+  const c = newCat('New sheet', null, color % PAL.length); r.cats.push(c); r.activeCat = c.id; touch(); renderSheets(); renderAll();
+  const inp = $('#sheetList .sheetrow:last-child .sName'); inp.focus(); inp.select();
+};
+
+/* ================= zip ================= */
+const CRC_T = (() => { const t = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(b) { let c = 0xFFFFFFFF; for (let i = 0; i < b.length; i++) c = CRC_T[(c ^ b[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipStore(files) {
+  const enc = new TextEncoder(), parts = [], central = []; let off = 0;
+  const d = new Date(), dt = ((d.getFullYear() - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate(), tm = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+  for (const f of files) {
+    const nm = enc.encode(f.name), data = enc.encode(f.data), crc = crc32(data), sz = data.length;
+    const h = new DataView(new ArrayBuffer(30));
+    h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true);
+    h.setUint16(10, tm, true); h.setUint16(12, dt, true); h.setUint32(14, crc, true); h.setUint32(18, sz, true); h.setUint32(22, sz, true); h.setUint16(26, nm.length, true);
+    parts.push(new Uint8Array(h.buffer), nm, data);
+    const c = new DataView(new ArrayBuffer(46));
+    c.setUint32(0, 0x02014b50, true); c.setUint16(4, 20, true); c.setUint16(6, 20, true); c.setUint16(8, 0x0800, true);
+    c.setUint16(12, tm, true); c.setUint16(14, dt, true); c.setUint32(16, crc, true); c.setUint32(20, sz, true); c.setUint32(24, sz, true); c.setUint16(28, nm.length, true); c.setUint32(42, off, true);
+    central.push(new Uint8Array(c.buffer), nm);
+    off += 30 + nm.length + sz;
+  }
+  const cdSize = central.reduce((a, b) => a + b.length, 0), e = new DataView(new ArrayBuffer(22));
+  e.setUint32(0, 0x06054b50, true); e.setUint16(8, files.length, true); e.setUint16(10, files.length, true); e.setUint32(12, cdSize, true); e.setUint32(16, off, true);
+  return [...parts, ...central, new Uint8Array(e.buffer)];
+}
+
+/* ================= xlsx writer ================= */
+function colL(n) { let s = ''; while (n > 0) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = (n - m - 1) / 26; } return s; }
+function colN(s) { let n = 0; for (const ch of s) n = n * 26 + ch.charCodeAt(0) - 64; return n; }
+const xesc = s => String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const isoToSerial = iso => { const [y, m, d] = ymd(iso); return Date.UTC(y, m - 1, d) / 86400000 + 25569; };
+
+function buildXlsx(m, r) {
+  const ST = {txt: 1, ctr: 2, date: 3, amt: 4, title: 5, totLbl: 6, totAmt: 7};
+  const strings = [], smap = new Map(), si = s => { if (!smap.has(s)) { smap.set(s, strings.length); strings.push(s); } return smap.get(s); };
+  const used = new Set(['top sheet', 'history']);
+  const sheetName = n => {
+    const b = String(n).replace(/[\[\]:*?\/\\]/g, '-').replace(/^'+|'+$/g, '').trim().slice(0, 31) || 'Sheet';
+    let nm = b, i = 2; while (used.has(nm.toLowerCase())) { const suf = ` (${i++})`; nm = b.slice(0, 31 - suf.length) + suf; }
+    used.add(nm.toLowerCase()); return nm;
+  };
+  const qref = n => "'" + n.replace(/'/g, "''") + "'";
+  const mk = (name, widths) => ({name, widths, rows: new Map(), merges: [], heights: {}});
+  const put = (sh, c, rw, val, s) => { if (!sh.rows.has(rw)) sh.rows.set(rw, new Map()); sh.rows.get(rw).set(c, {val, s}); };
+  const box = (sh, c1, r1, c2, r2_, val, s) => {
+    for (let rr = r1; rr <= r2_; rr++) for (let cc = c1; cc <= c2; cc++) put(sh, cc, rr, null, s);
+    if (c1 !== c2 || r1 !== r2_) sh.merges.push(`${colL(c1)}${r1}:${colL(c2)}${r2_}`);
+    if (val !== null && val !== undefined && val !== '') put(sh, c1, r1, val, s);
+  };
+  const header = (sh, title) => {
+    box(sh, 1, 1, 6, 1, title, ST.title); sh.heights[1] = 24;
+    m.hdr.forEach(([l, v], i) => { box(sh, 1, 2 + i, 2, 2 + i, l, ST.txt); box(sh, 3, 2 + i, 6, 2 + i, v || '', ST.txt); });
+  };
+  const sheets = [], totals = [];
+  for (const s of m.sheets) {
+    const sh = mk(sheetName(s.name), [7, 12, 24, 10, 10, 14]);
+    header(sh, s.title);
+    box(sh, 1, 7, 1, 8, 'SR NO', ST.ctr); box(sh, 2, 7, 2, 8, 'DATE', ST.ctr); box(sh, 3, 7, 5, 8, s.head, ST.ctr); box(sh, 6, 7, 6, 8, 'AMOUNT', ST.ctr);
+    let row = 9, n = 0;
+    for (const g of s.groups) {
+      box(sh, 2, row, 2, row + g.rows.length - 1, g.date ? {d: isoToSerial(g.date)} : '', ST.date);
+      for (const e of g.rows) { put(sh, 1, row, ++n, ST.ctr); box(sh, 3, row, 5, row, e.name, ST.txt); put(sh, 6, row, e.amt, ST.amt); row++; }
+    }
+    for (let k = 0; k < 2; k++) { put(sh, 1, row, null, ST.ctr); put(sh, 2, row, null, ST.date); box(sh, 3, row, 5, row, null, ST.txt); put(sh, 6, row, null, ST.amt); row++; }
+    box(sh, 1, row, 5, row, 'TOTAL', ST.totLbl); put(sh, 6, row, {f: `SUM(F9:F${row - 1})`, v: s.total}, ST.totAmt);
+    totals.push({s, sheet: sh.name, row}); sheets.push(sh);
+  }
+  const top = mk('Top Sheet', [8, 12, 12, 12, 12, 15]);
+  header(top, m.topTitle);
+  box(top, 1, 7, 1, 8, 'SR. NO.', ST.ctr); box(top, 2, 7, 5, 8, 'DETAIL OF EXPENSES', ST.ctr); box(top, 6, 7, 6, 8, 'AMOUNT', ST.ctr);
+  let row = 9;
+  totals.forEach((t, i) => { put(top, 1, row, i + 1, ST.ctr); box(top, 2, row, 5, row, t.s.name, ST.txt); put(top, 6, row, {f: `${qref(t.sheet)}!F${t.row}`, v: t.s.total}, ST.amt); row++; });
+  const totRow = row;
+  box(top, 1, row, 5, row, 'TOTAL CASH EXPENSES', ST.totLbl); put(top, 6, row, totals.length ? {f: `SUM(F9:F${row - 1})`, v: m.spent} : 0, ST.totAmt);
+  row += 2; const recRow = row;
+  box(top, 1, row, 5, row, 'AMOUNT RECEIVED', ST.txt); put(top, 6, row, m.rec, ST.amt);
+  row += 2;
+  box(top, 1, row, 5, row, {f: `IF(F${totRow}-F${recRow}<0,"AMOUNT TO RETURN","AMOUNT TO RECEIVE")`, v: m.balLabel, str: true}, ST.totLbl);
+  put(top, 6, row, {f: `ABS(F${totRow}-F${recRow})`, v: Math.abs(m.bal)}, ST.totAmt);
+  sheets.unshift(top);
+
+  const cellXml = (ref, {val, s}) => {
+    const sa = s ? ` s="${s}"` : '';
+    if (val === null || val === undefined || val === '') return `<c r="${ref}"${sa}/>`;
+    if (typeof val === 'number') return `<c r="${ref}"${sa}><v>${val}</v></c>`;
+    if (typeof val === 'object' && 'd' in val) return `<c r="${ref}"${sa}><v>${val.d}</v></c>`;
+    if (typeof val === 'object' && 'f' in val) return `<c r="${ref}"${sa}${val.str ? ' t="str"' : ''}><f>${xesc(val.f)}</f><v>${xesc(val.v)}</v></c>`;
+    return `<c r="${ref}"${sa} t="s"><v>${si(String(val))}</v></c>`;
+  };
+  const NS = 'xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
+  const sheetXmls = sheets.map((sh, i) => {
+    const rows = [...sh.rows.keys()].sort((a, b) => a - b).map(rn => {
+      const cells = [...sh.rows.get(rn).entries()].sort((a, b) => a[0] - b[0]).map(([c, cell]) => cellXml(colL(c) + rn, cell)).join('');
+      return `<row r="${rn}"${sh.heights[rn] ? ` ht="${sh.heights[rn]}" customHeight="1"` : ''}>${cells}</row>`;
+    }).join('');
+    return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<worksheet ${NS}><sheetPr><pageSetUpPr fitToPage="1"/></sheetPr><sheetViews><sheetView workbookViewId="0"${i === 0 ? ' tabSelected="1"' : ''}/></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols>${sh.widths.map((w, k) => `<col min="${k + 1}" max="${k + 1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>${rows}</sheetData>${sh.merges.length ? `<mergeCells count="${sh.merges.length}">${sh.merges.map(x => `<mergeCell ref="${x}"/>`).join('')}</mergeCells>` : ''}<pageMargins left="0.5" right="0.5" top="0.6" bottom="0.6" header="0.3" footer="0.3"/><pageSetup paperSize="9" orientation="portrait" fitToWidth="1" fitToHeight="0"/></worksheet>`;
+  });
+  const bd = '<border><left style="medium"><color auto="1"/></left><right style="medium"><color auto="1"/></right><top style="medium"><color auto="1"/></top><bottom style="medium"><color auto="1"/></bottom><diagonal/></border>';
+  const xf = (fmt, font, h) => `<xf numFmtId="${fmt}" fontId="${font}" fillId="0" borderId="1" xfId="0" applyNumberFormat="1" applyFont="1" applyBorder="1" applyAlignment="1"><alignment${h ? ` horizontal="${h}"` : ''} vertical="center"/></xf>`;
+  const styles = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="2"><numFmt numFmtId="164" formatCode="dd-mmm-yy"/><numFmt numFmtId="165" formatCode="${m.decimals ? '#,##0.00' : '#,##0'}"/></numFmts><fonts count="3"><font><sz val="11"/><name val="Calibri"/><family val="2"/></font><font><b/><sz val="11"/><name val="Calibri"/><family val="2"/></font><font><b/><sz val="12"/><name val="Calibri"/><family val="2"/></font></fonts><fills count="2"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border>${bd}</borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="8"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/>${xf(0, 1, '')}${xf(0, 1, 'center')}${xf(164, 1, 'center')}${xf(165, 1, '')}${xf(0, 2, 'center')}${xf(0, 1, 'center')}${xf(165, 1, '')}</cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+  const sst = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="${strings.length}" uniqueCount="${strings.length}">${strings.map(s => `<si><t xml:space="preserve">${xesc(s)}</t></si>`).join('')}</sst>`;
+  const n = sheets.length;
+  const workbook = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<workbook ${NS}><bookViews><workbookView activeTab="0"/></bookViews><sheets>${sheets.map((s, i) => `<sheet name="${xesc(s.name)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`).join('')}</sheets><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>`;
+  const wbRels = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${sheets.map((s, i) => `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`).join('')}<Relationship Id="rId${n + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rId${n + 2}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/sharedStrings" Target="sharedStrings.xml"/></Relationships>`;
+  const ctypes = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>${sheets.map((s, i) => `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`).join('')}<Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/><Override PartName="/xl/sharedStrings.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sharedStrings+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>`;
+  const rels = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/></Relationships>`;
+  const now = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
+  const core = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${xesc(reportTitle(r))} expenses</dc:title><dc:creator>${xesc(r.fields.name || 'Expensinator')}</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${now}</dcterms:created><dcterms:modified xsi:type="dcterms:W3CDTF">${now}</dcterms:modified></cp:coreProperties>`;
+  return zipStore([
+    {name: '[Content_Types].xml', data: ctypes}, {name: '_rels/.rels', data: rels}, {name: 'docProps/core.xml', data: core},
+    {name: 'xl/workbook.xml', data: workbook}, {name: 'xl/_rels/workbook.xml.rels', data: wbRels},
+    {name: 'xl/styles.xml', data: styles}, {name: 'xl/sharedStrings.xml', data: sst},
+    ...sheetXmls.map((x, i) => ({name: `xl/worksheets/sheet${i + 1}.xml`, data: x}))
+  ]);
+}
+
+/* ================= pdf writer (A4, built-in Helvetica, no library) ================= */
+const WIN = {8364:128,8218:130,402:131,8222:132,8230:133,8224:134,8225:135,710:136,8240:137,352:138,8249:139,338:140,381:142,8216:145,8217:146,8220:147,8221:148,8226:149,8211:150,8212:151,732:152,8482:153,353:154,8250:155,339:156,382:158,376:159};
+function winAnsi(s) {
+  let o = '';
+  for (const ch of String(s ?? '')) {
+    const c = ch.codePointAt(0);
+    if ((c >= 32 && c < 127) || (c >= 160 && c <= 255)) o += ch;
+    else if (WIN[c]) o += String.fromCharCode(WIN[c]);
+    else if (c === 8377) o += 'Rs.';
+    else if (c === 8722) o += '-';
+    else if (c === 9 || c === 10 || c === 13) o += ' ';
+    else o += '?';
+  }
+  return o;
+}
+const tw = (s, f, size) => { let w = 0; for (let i = 0; i < s.length; i++) { const c = s.charCodeAt(i); w += c >= 32 && c <= 255 ? PDF_W[f][c - 32] : 556; } return w * size / 1000; };
+const pstr = s => '(' + s.replace(/\\/g, '\\\\').replace(/\(/g, '\\(').replace(/\)/g, '\\)') + ')';
+function wrapText(s, f, size, maxW) {
+  const words = s.split(/ +/), lines = []; let cur = '';
+  const breakLong = w => { while (tw(w, f, size) > maxW && w.length > 1) { let k = w.length; while (k > 1 && tw(w.slice(0, k), f, size) > maxW) k--; lines.push(w.slice(0, k)); w = w.slice(k); } return w; };
+  for (const w of words) {
+    const t = cur ? cur + ' ' + w : w;
+    if (tw(t, f, size) <= maxW) cur = t;
+    else { if (cur) lines.push(cur); cur = breakLong(w); }
+  }
+  if (cur || !lines.length) lines.push(cur);
+  return lines;
+}
+function buildPdf(m, r) {
+  const W = 595.28, H = 841.89, M = 36, CW = W - 2 * M, BOTTOM = H - M - 22, PADX = 5, LH = 12;
+  const pages = []; let ops, y;
+  const fx = v => v.toFixed(2);
+  const newPage = () => { ops = ['0.8 w 0 G 0 g']; pages.push(ops); y = M; };
+  const rect = (x, yt, w, h, fill) => {
+    if (fill != null) ops.push(`${fill} g ${fx(x)} ${fx(H - yt - h)} ${fx(w)} ${fx(h)} re f 0 g`);
+    ops.push(`${fx(x)} ${fx(H - yt - h)} ${fx(w)} ${fx(h)} re S`);
+  };
+  const textAt = (t, x, base, f, size, gray) => ops.push(`BT ${gray != null ? gray + ' g ' : ''}/F${f === 'B' ? 2 : 1} ${size} Tf ${fx(x)} ${fx(H - base)} Td ${pstr(t)} Tj ET${gray != null ? ' 0 g' : ''}`);
+  const linesFor = (s, w, f = 'B', size = 10) => wrapText(winAnsi(s), f, size, w - 2 * PADX);
+  const hFor = (lines, min = 20) => Math.max(min, lines.length * LH + 8);
+  const cell = (x, yt, w, h, s, o = {}) => {
+    const f = o.f || 'B', size = o.size || 10;
+    rect(x, yt, w, h, o.fill);
+    if (s === '' || s == null) return;
+    const lines = o.lines || linesFor(s, w, f, size);
+    const top = yt + (h - lines.length * LH) / 2;
+    lines.forEach((ln, i) => {
+      const lw = tw(ln, f, size), base = top + i * LH + LH / 2 + size * 0.35;
+      const x0 = o.align === 'r' ? x + w - PADX - lw : o.align === 'c' ? x + (w - lw) / 2 : x + PADX;
+      textAt(ln, x0, base, f, size, o.gray);
+    });
+  };
+  const header = title => {
+    const tl = linesFor(title, CW, 'B', 12), th = hFor(tl, 26);
+    cell(M, y, CW, th, title, {size: 12, align: 'c', fill: 0.9, lines: tl}); y += th;
+    for (const [l, v] of m.hdr) {
+      const lw = 170, lines = linesFor(v || '', CW - lw), h = hFor(lines);
+      cell(M, y, lw, h, l); cell(M + lw, y, CW - lw, h, v || '', {lines}); y += h;
+    }
+    y += 14;
+  };
+  const amt = n => plain(n, m.decimals);
+
+  // page 1: summary sheet
+  newPage(); header(m.topTitle);
+  const tc = [50, CW - 50 - 140, 140], lab = tc[0] + tc[1];
+  cell(M, y, tc[0], 24, 'SR. NO.', {align: 'c', fill: 0.9}); cell(M + tc[0], y, tc[1], 24, 'DETAIL OF EXPENSES', {align: 'c', fill: 0.9}); cell(M + lab, y, tc[2], 24, 'AMOUNT', {align: 'c', fill: 0.9}); y += 24;
+  m.sheets.forEach((s, i) => { cell(M, y, tc[0], 20, String(i + 1), {align: 'c'}); cell(M + tc[0], y, tc[1], 20, s.name); cell(M + lab, y, tc[2], 20, amt(s.total), {align: 'r'}); y += 20; });
+  cell(M, y, lab, 22, 'TOTAL CASH EXPENSES', {fill: 0.94}); cell(M + lab, y, tc[2], 22, amt(m.spent), {align: 'r', fill: 0.94}); y += 36;
+  cell(M, y, lab, 22, 'AMOUNT RECEIVED'); cell(M + lab, y, tc[2], 22, amt(m.rec), {align: 'r'}); y += 36;
+  cell(M, y, lab, 24, m.balLabel, {fill: 0.9, size: 11}); cell(M + lab, y, tc[2], 24, amt(Math.abs(m.bal)), {align: 'r', fill: 0.9, size: 11}); y += 24;
+
+  // then every sheet, each starting on a new page
+  const cc = [44, 74, CW - 44 - 74 - 110, 110], amtX = M + cc[0] + cc[1] + cc[2];
+  for (const s of m.sheets) {
+    newPage(); header(s.title);
+    const thead = () => { let x = M; ['SR NO', 'DATE', s.head, 'AMOUNT'].forEach((t, i) => { cell(x, y, cc[i], 24, t, {align: 'c', fill: 0.9}); x += cc[i]; }); y += 24; };
+    const contd = () => { newPage(); cell(M, y, CW, 22, s.title + ' (continued)', {align: 'c', fill: 0.9}); y += 30; thead(); };
+    thead();
+    let n = 0;
+    for (const g of s.groups) {
+      let spanTop = y, open = false;
+      const closeSpan = () => { if (open && y > spanTop) cell(M + cc[0], spanTop, cc[1], y - spanTop, shortDate(g.date), {align: 'c'}); open = false; };
+      for (const e of g.rows) {
+        const lines = linesFor(e.name, cc[2], 'R'), h = hFor(lines);
+        if (y + h > BOTTOM) { closeSpan(); contd(); }
+        if (!open) { spanTop = y; open = true; }
+        cell(M, y, cc[0], h, String(++n), {align: 'c', f: 'R'});
+        cell(M + cc[0] + cc[1], y, cc[2], h, e.name, {f: 'R', lines});
+        cell(amtX, y, cc[3], h, amt(e.amt), {align: 'r', f: 'R'});
+        y += h;
+      }
+      closeSpan();
+    }
+    if (!n) { let x = M; cc.forEach((w, i) => { cell(x, y, w, 20, i === 2 ? 'No expenses' : '', {f: 'R', gray: 0.5}); x += w; }); y += 20; }
+    if (y + 22 > BOTTOM) contd();
+    cell(M, y, cc[0] + cc[1] + cc[2], 22, 'TOTAL', {align: 'c', fill: 0.94}); cell(amtX, y, cc[3], 22, amt(s.total), {align: 'r', fill: 0.94}); y += 22;
+  }
+  // footer on every page
+  const foot = winAnsi([r.fields.project, periodText(r)].filter(Boolean).join(' - '));
+  pages.forEach((p, i) => {
+    ops = p; const label = `Page ${i + 1} of ${pages.length}`;
+    if (foot) textAt(foot, M, H - M + 8, 'R', 8, 0.45);
+    textAt(label, W - M - tw(label, 'R', 8), H - M + 8, 'R', 8, 0.45);
+  });
+  // assemble the file
+  const objs = [];
+  objs[1] = '<< /Type /Catalog /Pages 2 0 R >>';
+  objs[3] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>';
+  objs[4] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>';
+  const kids = [];
+  pages.forEach((p, i) => {
+    const pn = 5 + i * 2, cn = pn + 1, stream = p.join('\n');
+    objs[pn] = `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${W} ${H}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${cn} 0 R >>`;
+    objs[cn] = `<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`;
+    kids.push(`${pn} 0 R`);
+  });
+  objs[2] = `<< /Type /Pages /Kids [${kids.join(' ')}] /Count ${pages.length} >>`;
+  const info = objs.length; objs[info] = `<< /Title ${pstr(winAnsi(reportTitle(r) + ' expenses'))} /Author ${pstr(winAnsi(r.fields.name || ''))} /Producer (Expensinator) >>`;
+  let out = '%PDF-1.4\n%âãÏÓ\n'; const offs = [];
+  for (let i = 1; i < objs.length; i++) { offs[i] = out.length; out += `${i} 0 obj\n${objs[i]}\nendobj\n`; }
+  const xref = out.length;
+  out += `xref\n0 ${objs.length}\n0000000000 65535 f \n` + offs.slice(1).map(o => String(o).padStart(10, '0') + ' 00000 n \n').join('');
+  out += `trailer\n<< /Size ${objs.length} /Root 1 0 R /Info ${info} 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
+  const bytes = new Uint8Array(out.length); for (let i = 0; i < out.length; i++) bytes[i] = out.charCodeAt(i) & 255;
+  return [bytes];
+}
+
+/* ================= export ================= */
+function defaultFileName(r) {
+  const first = (r.fields.name || '').trim().split(/\s+/)[0];
+  return [first, r.fields.project.trim(), 'Expense'].filter(Boolean).join('_').replace(/[\\\/:*?"<>|]+/g, '-').replace(/\s+/g, '_');
+}
+const canShareFiles = f => { try { return !!(navigator.canShare && navigator.canShare({files: [new File([new Uint8Array(1)], 't.' + f, {type: MIME[f]})]})); } catch (e) { return false; } };
+function setFmt(f) {
+  ui.fmt = f; db.fmt = f; save();
+  document.querySelectorAll('.seg button').forEach(b => { b.classList.toggle('on', b.dataset.fmt === f); b.setAttribute('aria-checked', b.dataset.fmt === f); });
+  $('#xExt').textContent = '.' + f;
+  const share = canShareFiles(f);
+  $('#btnShare').hidden = !share; $('#btnDownload').className = share ? '' : 'primary';
+}
+function renderExport() {
+  const r = R(), m = buildModel(r, $('#xSkip').checked);
+  let rows = m.sheets.map(s => `<tr><td>${esc(s.name)}</td><td>${money(s.total)}</td></tr>`).join('');
+  rows += `<tr class="tot"><td>Total cash expenses</td><td>${money(m.spent)}</td></tr><tr class="dim"><td>Received</td><td>${money(m.rec)}</td></tr><tr><td>${m.bal < 0 ? 'To return' : 'To receive'}</td><td>${money(Math.abs(m.bal))}</td></tr>`;
+  $('#xTable').innerHTML = rows;
+  const miss = [['name', 'name'], ['house', 'production house'], ['project', 'project']].filter(([k]) => !String(r.fields[k] || '').trim()).map(([, l]) => l);
+  if (!periodText(r)) miss.push('period');
+  const w = [];
+  if (miss.length) w.push(`Shoot details missing: ${miss.join(', ')}.`);
+  if (r.periodFrom && r.periodTo && r.periodTo < r.periodFrom) w.push('Period “To” date is before “From”.');
+  if (m.recBlank) w.push('Amount received is blank. It will show as 0.');
+  if (!r.entries.length) w.push('There are no expenses yet.');
+  $('#xWarn').innerHTML = w.length ? `<div class="warnbox">${w.map(esc).join('<br>')}</div>` : '';
+}
+$('#btnExport').onclick = () => {
+  flush();
+  $('#xName').value = defaultFileName(R()) || 'Expenses';
+  setFmt(ui.fmt); renderExport(); $('#dlgExport').showModal();
+};
+document.querySelectorAll('.seg button').forEach(b => b.onclick = () => setFmt(b.dataset.fmt));
+$('#xSkip').onchange = renderExport;
+function makeFile() {
+  const r = R(), m = buildModel(r, $('#xSkip').checked), f = ui.fmt;
+  const name = ($('#xName').value.trim() || 'Expenses').replace(/\.(xlsx|pdf)$/i, '').replace(/[\\\/:*?"<>|]+/g, '-') + '.' + f;
+  return {name, type: MIME[f], blob: new Blob(f === 'pdf' ? buildPdf(m, r) : buildXlsx(m, r), {type: MIME[f]})};
+}
+function download(blob, name) {
+  const url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
+}
+$('#btnDownload').onclick = () => { const {name, blob} = makeFile(); download(blob, name); toast('Saved ' + name); };
+$('#btnShare').onclick = async () => {
+  const {name, blob, type} = makeFile(), file = new File([blob], name, {type});
+  try { await navigator.share({files: [file], title: name}); }
+  catch (e) { if (e.name !== 'AbortError') { download(blob, name); toast('Sharing failed, downloaded instead'); } }
+};
+
+/* ================= xlsx import ================= */
+async function unzip(buf) {
+  const u8 = new Uint8Array(buf), dv = new DataView(buf), dec = new TextDecoder();
+  let eo = -1;
+  for (let i = u8.length - 22; i >= Math.max(0, u8.length - 65557); i--) if (dv.getUint32(i, true) === 0x06054b50) { eo = i; break; }
+  if (eo < 0) throw new Error('This isn’t an Excel (.xlsx) file.');
+  const n = dv.getUint16(eo + 10, true); let p = dv.getUint32(eo + 16, true); const files = {};
+  for (let k = 0; k < n; k++) {
+    if (dv.getUint32(p, true) !== 0x02014b50) break;
+    const method = dv.getUint16(p + 10, true), csz = dv.getUint32(p + 20, true), nl = dv.getUint16(p + 28, true), xl = dv.getUint16(p + 30, true), cl = dv.getUint16(p + 32, true), lo = dv.getUint32(p + 42, true);
+    const name = dec.decode(u8.subarray(p + 46, p + 46 + nl)); p += 46 + nl + xl + cl;
+    const start = lo + 30 + dv.getUint16(lo + 26, true) + dv.getUint16(lo + 28, true);
+    files[name] = {method, data: u8.subarray(start, start + csz)};
+  }
+  return async name => {
+    const f = files[name]; if (!f) return null;
+    let d = f.data;
+    if (f.method === 8) {
+      if (typeof DecompressionStream === 'undefined') throw new Error('This browser is too old to import Excel files. Update it and try again.');
+      d = new Uint8Array(await new Response(new Blob([d]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer());
+    }
+    return dec.decode(d);
+  };
+}
+async function readXlsx(buf) {
+  const get = await unzip(buf), P = s => new DOMParser().parseFromString(s, 'application/xml');
+  const T = (el, tag) => [...el.getElementsByTagNameNS('*', tag)];
+  const wbText = await get('xl/workbook.xml'); if (!wbText) throw new Error('This file has no sheets to read.');
+  const wb = P(wbText), rels = P(await get('xl/_rels/workbook.xml.rels'));
+  const relMap = {}; T(rels, 'Relationship').forEach(r => relMap[r.getAttribute('Id')] = r.getAttribute('Target'));
+  const strings = []; const sstT = await get('xl/sharedStrings.xml');
+  if (sstT) T(P(sstT), 'si').forEach(si => strings.push(T(si, 't').map(t => t.textContent).join('')));
+  const out = [];
+  for (const s of T(wb, 'sheet')) {
+    const rid = s.getAttribute('r:id') || s.getAttributeNS('http://schemas.openxmlformats.org/officeDocument/2006/relationships', 'id');
+    let t = relMap[rid]; if (!t) continue;
+    t = t.startsWith('/') ? t.slice(1) : 'xl/' + t.replace(/^\.\//, '');
+    const x = await get(t); if (!x) continue;
+    const g = {}; let maxR = 0;
+    for (const c of T(P(x), 'c')) {
+      const mm = /^([A-Z]+)(\d+)$/.exec(c.getAttribute('r') || ''); if (!mm) continue;
+      const ty = c.getAttribute('t'), vEl = T(c, 'v')[0], fEl = T(c, 'f')[0];
+      let v = vEl ? vEl.textContent : null;
+      if (ty === 's') v = strings[+v] ?? '';
+      else if (ty === 'inlineStr') v = T(c, 't').map(z => z.textContent).join('');
+      else if (ty === 'str' || ty === 'e') {}
+      else if (ty === 'b') v = v === '1';
+      else if (v != null && v !== '') v = Number(v);
+      const rr = +mm[2]; (g[rr] = g[rr] || {})[colN(mm[1])] = {v, f: fEl ? fEl.textContent : null};
+      maxR = Math.max(maxR, rr);
+    }
+    out.push({name: s.getAttribute('name'), g, maxR});
+  }
+  return out;
+}
+const txt = v => typeof v === 'string' ? v.replace(/\s+/g, ' ').trim() : (typeof v === 'number' ? String(v) : '');
+const cellV = (S, r, c) => S.g[r] && S.g[r][c] ? S.g[r][c].v : null;
+function toISO(v) {
+  if (typeof v === 'number' && v > 20000 && v < 80000) { const d = new Date(Math.round((v - 25569) * 86400000)); return `${d.getUTCFullYear()}-${pad(d.getUTCMonth() + 1)}-${pad(d.getUTCDate())}`; }
+  if (typeof v === 'string') {
+    let mm = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(v.trim()); if (mm) return `${mm[1]}-${pad(mm[2])}-${pad(mm[3])}`;
+    mm = /^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})$/.exec(v.trim()); if (mm) return `${mm[3].length === 2 ? '20' + mm[3] : mm[3]}-${pad(mm[2])}-${pad(mm[1])}`;
+  }
+  return '';
+}
+function findField(S, re) {
+  for (let r = 1; r <= Math.min(12, S.maxR); r++) {
+    const row = S.g[r]; if (!row) continue;
+    const cols = Object.keys(row).map(Number).sort((a, b) => a - b);
+    for (const c of cols) {
+      const t = txt(row[c].v);
+      if (t && typeof row[c].v === 'string' && re.test(t.toUpperCase())) {
+        for (const c2 of cols) if (c2 > c && txt(row[c2].v)) return {label: t, value: txt(row[c2].v)};
+        return {label: t, value: ''};
+      }
+    }
+  }
+  return null;
+}
+function parseCatSheet(S) {
+  let hr = 0, dc = 0, ac = 0;
+  outer: for (let r = 1; r <= Math.min(30, S.maxR); r++) { const row = S.g[r]; if (!row) continue; for (const c in row) if (txt(row[c].v).toUpperCase() === 'DATE') { hr = r; dc = +c; break outer; } }
+  if (!hr) return null;
+  for (const c in S.g[hr]) if (+c > dc && /AMOUNT/.test(txt(S.g[hr][c].v).toUpperCase())) { ac = +c; break; }
+  if (!ac) return null;
+  let detC = 0, head = '';
+  for (let c = dc + 1; c < ac; c++) { const t = txt(cellV(S, hr, c)); if (t) { detC = c; head = t; break; } }
+  if (!detC) detC = dc + 1;
+  const entries = []; let cur = '';
+  for (let r = hr + 1; r <= S.maxR; r++) {
+    const row = S.g[r]; if (!row) continue;
+    if (Object.values(row).some(x => /^TOTAL\b/.test(txt(x.v).toUpperCase()))) break;
+    const d = toISO(cellV(S, r, dc)); if (d) cur = d;
+    const name = txt(cellV(S, r, detC)), av = cellV(S, r, ac);
+    const amt = typeof av === 'number' ? av : parseAmt(av), hasAmt = amt != null && !Number.isNaN(amt);
+    if (!name && !hasAmt) continue;
+    if (!hasAmt && /^(NO|SR|SR NO)$/i.test(name)) continue;
+    entries.push({date: cur, name: name || '(no name)', amt: hasAmt ? r2(amt) : 0});
+  }
+  return {head, entries};
+}
+function interpret(sheets) {
+  const isTop = S => /TOP SHEET/i.test([1, 2, 3].map(r => Object.values(S.g[r] || {}).map(x => txt(x.v)).join(' ')).join(' ')) || /^top|summary/i.test(S.name);
+  const top = sheets.find(isTop), labelOf = {}, order = [];
+  let received = '';
+  if (top) for (let r = 1; r <= top.maxR; r++) {
+    const row = top.g[r]; if (!row) continue;
+    const cols = Object.keys(row).map(Number).sort((a, b) => a - b);
+    const fc = cols.find(c => row[c].f && /!/.test(row[c].f));
+    if (fc) {
+      const mm = /^=?'?(.+?)'?!/.exec(row[fc].f), lab = cols.map(c => row[c].v).find(v => typeof v === 'string' && txt(v));
+      if (mm) { const key = mm[1].replace(/''/g, "'").toLowerCase(); labelOf[key] = txt(lab) || mm[1]; order.push(key); }
+    }
+    const rowText = cols.map(c => txt(row[c].v)).join(' ').toUpperCase();
+    if (/REC[EI]{1,2}V/.test(rowText) && !/RETURN|TO RECEIVE/.test(rowText)) {
+      const nums = cols.map(c => row[c].v).filter(v => typeof v === 'number');
+      if (nums.length) received = String(nums[nums.length - 1]);
+    }
+  }
+  const parsed = [];
+  for (const S of sheets) { if (S === top) continue; const p = parseCatSheet(S); if (p) parsed.push({S, ...p}); }
+  if (!parsed.length) throw new Error('No expense sheets found. Each sheet needs DATE and AMOUNT columns.');
+  parsed.sort((a, b) => { const ia = order.indexOf(a.S.name.toLowerCase()), ib = order.indexOf(b.S.name.toLowerCase()); return (ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib); });
+  const src = top || parsed[0].S;
+  const nm = findField(src, /\bNAME\b/), ph = findField(src, /PRODUCTION/), pe = findField(src, /PERIOD/), pr = findField(src, /PROJECT/);
+  const r = newReport();
+  r.cats = []; r.received = received;
+  r.fields = {name: nm ? nm.value : '', house: ph ? ph.value : '', project: pr ? pr.value : ''};
+  if (nm) { const role = nm.label.replace(/\s*NAME\s*$/i, '').trim(); r.role = /^ART ASST\.?$/i.test(role) ? DEFAULT_ROLE : role.replace(/\S+/g, w => w[0] + w.slice(1).toLowerCase()); }
+  parsed.forEach((p, i) => {
+    const name = labelOf[p.S.name.toLowerCase()] || p.S.name;
+    const c = {id: uid(), name, head: p.head || autoHead(name), headAuto: !p.head, color: i % PAL.length};
+    r.cats.push(c);
+    p.entries.forEach(e => r.entries.push({id: uid(), cat: c.id, date: e.date, name: e.name, amt: e.amt, seq: ++r.seq}));
+  });
+  const ds = r.entries.map(e => e.date).filter(Boolean).sort();
+  r.lastDate = ds[ds.length - 1] || '';
+  const p = parsePeriod(pe && pe.value, +((ds[0] || todayISO()).slice(0, 4)));
+  r.periodFrom = p ? p[0] : (ds[0] || ''); r.periodTo = p ? p[1] : (ds[ds.length - 1] || '');
+  return r;
+}
+$('#importPicker').addEventListener('change', async e => {
+  const f = e.target.files[0]; e.target.value = ''; if (!f) return;
+  try {
+    const r = interpret(await readXlsx(await f.arrayBuffer()));
+    db.reports[r.id] = r; switchTo(r.id); $('#dlgReports').close();
+    toast(`Imported ${r.cats.length} sheets, ${r.entries.length} expenses`);
+  } catch (err) { toast(err.message || 'Couldn’t read that file'); }
+});
+
+/* ================= boot ================= */
+ensure(); save(); renderAll();
+</script>
+</body>
+</html>
